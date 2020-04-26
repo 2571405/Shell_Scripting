@@ -9,3 +9,12 @@ then
 else
 	echo "Invalid first name!"
 fi
+
+read -p "Enter last name: " lname
+lname_pattern="^[[:upper:]][[:lower:]]{2,}$"
+if [[ $lname =~ $lname_pattern ]]
+then
+   echo "Valid last name"
+else
+   echo "Invalid last name!"
+fi

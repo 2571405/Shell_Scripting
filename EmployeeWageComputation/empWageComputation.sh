@@ -2,7 +2,9 @@
 
 echo "Employee Wage Computation"
 salary=0
-for (( i=1;i<=20;i=$i+1 ))
+days=1
+over=0
+while (( $over==0 ))
 do
 	attend=$(( $RANDOM%3 ))
 	case $attend in
@@ -22,6 +24,12 @@ do
 		DayPrHr=8
 		;;
 	esac
+	days=$(( $days+1 ))
+	Working_hrs=$(( $Working_hrs+$DayPrHr ))
 	salary=$(( $salary+($wagePrHr*$DayPrHr) ))
+	if (( $days==20 || $Working_hrs==100 ))
+	then
+		over=1
+	fi
 done
-echo "Salary is: " $salary
+echo "Monthly Salary is: " $salary

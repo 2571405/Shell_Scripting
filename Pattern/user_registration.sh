@@ -42,7 +42,12 @@ if [[ ${#pass} -ge 8 ]]
 then
 	if [[ "$pass" == *[A-Z]* ]]
 	then
-		echo "Valid"
+		if [[ "$pass" == *[0-9]* ]]
+		then
+			echo "Valid"
+		else
+			echo "Invalid password!"
+		fi
 	else
 		echo "Invalid password!"
 	fi

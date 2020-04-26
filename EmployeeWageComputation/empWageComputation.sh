@@ -49,11 +49,11 @@ do
 	loop=0
 	while (( $loop==0 ))
 	do
+		day[$i]=$days
 		daily[$i]=$dailyWage
 		i=$(( $i+1 ))
 		loop=1
 	done
-	days=$(( $days+1 ))
 	Working_hrs=$(get_work_hrs $attend $Working_hrs)
 	salary=$(( $salary+($wagePrHr*$DayPrHr) ))
 	if (( $days==20 || $Working_hrs==100 ))
@@ -67,6 +67,17 @@ do
 			over=1
 		fi
 	fi
+	dailyWage=$(( $wagePrHr*$DayPrHr ))
+   loop=0
+   while (( $loop==0 ))
+   do
+      day[$i]=$days
+      daily[$i]=$dailyWage
+      i=$(( $i+1 ))
+      loop=1
+   done
+	days=$(( $days+1 ))
 done
+echo "Day numbers are: " ${day[@]}
 echo "Array of Daily wages are: " ${daily[@]}
 echo "Monthly Salary is: " $salary

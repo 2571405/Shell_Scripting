@@ -37,4 +37,10 @@ else
 	echo "Invalid mobile number"
 fi
 
-
+read -p "Enter password: " pass
+if [[ ${#pass} -ge 8 ]]
+then
+	echo "Valid"
+else
+	echo "Invalid Password!"
+fi

@@ -24,6 +24,7 @@ salary=0
 days=1
 over=0
 Working_hrs=0
+i=0
 while (( $over==0 ))
 do
 	attend=$(( $RANDOM%3 ))
@@ -44,6 +45,14 @@ do
 		DayPrHr=8
 		;;
 	esac
+	dailyWage=$(( $wagePrHr*$DayPrHr ))
+	loop=0
+	while (( $loop==0 ))
+	do
+		daily[$i]=$dailyWage
+		i=$(( $i+1 ))
+		loop=1
+	done
 	days=$(( $days+1 ))
 	Working_hrs=$(get_work_hrs $attend $Working_hrs)
 	salary=$(( $salary+($wagePrHr*$DayPrHr) ))
@@ -59,4 +68,5 @@ do
 		fi
 	fi
 done
+echo "Array of Daily wages are: " ${daily[@]}
 echo "Monthly Salary is: " $salary

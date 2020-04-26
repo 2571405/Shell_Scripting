@@ -18,3 +18,13 @@ then
 else
    echo "Invalid last name!"
 fi
+
+read -p "Enter email: " email
+patt="^([a-z A-Z 0-9]+)([\. + -][a-z A-Z 0-9]+)?@([a-z 0-9]+)\.([a-z]{2,4})(\.[a-z]{2,4})?$"
+if [[ $email =~ $patt ]]
+then
+	echo "Valid Email"
+else
+	echo "Invalid email!"
+fi
+

@@ -44,7 +44,13 @@ then
 	then
 		if [[ "$pass" == *[0-9]* ]]
 		then
-			echo "Valid"
+			result=`echo $pass | grep -o -e [!@#$%_''""\^\&*-.\?] | wc -l`
+    		if (( $result == 1 ))
+    		then
+    			echo "Valid Password"
+    		else
+      		echo "Invalid Password!"
+    		fi
 		else
 			echo "Invalid password!"
 		fi

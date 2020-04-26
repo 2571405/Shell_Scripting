@@ -28,3 +28,13 @@ else
 	echo "Invalid email!"
 fi
 
+read -p "Enter mobile number: " num
+num_patt="^[+][1-9]{2}[ ][0-9]{10}$"
+if [[ $num =~ $num_patt ]]
+then
+	echo "Valid mobile number"
+else
+	echo "Invalid mobile number"
+fi
+
+
